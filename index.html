@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Library</title>
+</head>
+<body>
+    <div class="container">
+      <div class="navSidebar">
+            <div class="nav">
+                <p class="logo">💫MY LIBRARY</p>
+                <ul>
+                    <li> <a href="">🏠 Home </a></li>
+                    <li> <a href="">🅿️ Profile </a></li>
+                    <li> <a href="">📨 Messages </a></li>
+                    <li> <a href="">🕑 History </a></li>
+                    <li> <a href="">📄 Tasks </a></li>
+                    <li> <a href="">🧑‍🤝‍🧑 Communities </a></li>
+                    <br>
+                    <li> <a href="">⚙️ Settings </a></li>
+                    <li> <a href="">❓ Support </a></li>
+                    <li> <a href="">🛡️ Privacy </a></li>
+                </ul>
+            </div>
+      </div>
+
+      <div class="header">
+        
+            <div class="searchBox">
+                <div class="searchContainer">
+                    🔎<input  type="text">
+                </div>
+            </div>
+            <div class="greetingContainer">
+                <div class="avatarContainer"></div>
+                <div class="greeting">Hi there,</div>
+                <div class="userName">John Doe (@johnny)</div>
+            </div>
+            <div class="userControls">
+                <div class="bellIcon"></div>
+                <div class="avatarContainerSmall"></div>
+                <p class="profileName">John Doe<p>
+            </div>
+      </div>
+
+      <div class="contentContainer">
+            <div class="projectsContainer">
+                <div class="projectsHeader">
+                    <h5>Your Projects</h5>
+                </div>
+                <div id="libraryCards">
+                    <div class="card">
+                        <h4 class="headerTitle">Title:</h4>
+                        <h4 class="headerAuthor">Author:</h4>
+                        <h4 class="headerPages">Pages:</h4>
+                        <h4 class="headerIsRead">Read?</h4>
+                        <h4 class="headerNotes">Notes:</h4>
+                        <p class="bookTitle" style="color:red;">TEST</p>
+                        <p class="bookAuthor" style="color:red;">Hardcoded Test Display</p>
+                        <p class="bookPages">418</p>
+                        <p class="bookIsRead">false</p>
+                        <p class="bookNotes">some remarks</p>
+                        <div class="cardBottomContainer">
+                            <a href=""><div class="utilityIcon1"></div></a>
+                            <a href=""><div class="utilityIcon2"></div></a>
+                            <a href=""><div class="utilityIcon3"></div></a>
+                            <button type="submit" id="removeBookBtn" class="removeBookBtn">Remove</button>
+                        </div>
+                    </div>
+    
+                </div>
+            </div>
+            <div class="rtSideContainer">
+                <div class="rtSidebarHeader1">
+                    <h5>Announcements</h5>
+                </div>
+                <div class="side-content">
+                    
+                        <div class="formSection">
+                            <form id="addBookForm">
+                                <div class="fieldsContainer">
+                                    <legend class="introText">Add New Book!</legend>
+                                    <div class="formGroup">
+                                        <div class='form-row'>
+                                            <label for="book_title">Title:</label>
+                                            <input type="text" id="book_title" name="book_title"  placeholder="Title">
+                                        </div>
+                                        <div class='form-row'>
+                                            <label for="book_author">Author:</label>
+                                            <input type="text" id="book_author" name="book_author"  placeholder="Firstname Lastname">
+                                        </div>
+                                        <div class='form-row'>
+                                            <label for="book_pages">Number of Pages:</label>
+                                            <input type="number" id="book_pages" name="book_pages"  placeholder="111">
+                                        </div>
+                                        <div class='form-row'>
+                                            <label for="book_isRead">Read?</label>
+                                            <input type="checkbox" id="book_isRead" name="book_isRead">
+                                        </div>
+                                        <div class='form-row'>
+                                            <label for="book_notes">Notes:</label><br>
+                                            <textarea id="book_notes" name="book_notes" rows="5" cols="33" placeholder="Enter your book notes here..."></textarea><br>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="submit" id="addBookBtn">Add Book</button>
+                            </form>
+                        </div>
+                    
+                </div>
+                
+                
+                
+            </div>
+            <div class="footer"> copyright all rights reserved </div>
+      </div>
+
+      
+      
+    </div>
+  </body>
+  <script type="text/javascript" src="library.js" defer></script>
+</html>
