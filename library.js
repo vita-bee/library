@@ -35,7 +35,7 @@ Book.prototype.toggleIsRead = function() {
    this.isRead = !this.isRead; 
 };
 
-function bookToggleIsReadLibrary(bookId) {
+function bookToggleIsRead(bookId) {
     let indexToToggle = myLibrary.findIndex(book => book.id === bookId);
     console.log("index to toggle:", indexToToggle);
     if (indexToToggle !== -1) {
@@ -44,95 +44,9 @@ function bookToggleIsReadLibrary(bookId) {
 }
 
 function displayLibrary(libArray){
-    const headerTitle = "Title: ";
-    const headerAuthor = "Author: ";
-    const headerPages = "Pages: ";
-    const headerIsRead = "Read? ";
-    const headerNotes = "Notes: ";
-    const libraryCardsDiv = document.getElementById('libraryCards');
     libArray.forEach((book) => {
          console.log(book.title);
-
-         const cardDiv = document.createElement("div");
-         cardDiv.classList.add("card");
-         cardDiv.dataset.bookId = book.id; //set the book id as a data attribute so this card can be tracked for removal with button is clicked
-
-         const headerTitleH4 = document.createElement("h4");
-         headerTitleH4.classList.add("headerTitle");
-         headerTitleH4.textContent = headerTitle;
-         cardDiv.appendChild(headerTitleH4);
-
-         const headerAuthorH4 = document.createElement("h4");
-         headerAuthorH4.classList.add("headerAuthor");
-         headerAuthorH4.textContent = headerAuthor;
-         cardDiv.appendChild(headerAuthorH4);
-
-         const headerPagesH4 = document.createElement("h4");
-         headerPagesH4.classList.add("headerPages");
-         headerPagesH4.textContent = headerPages;
-         cardDiv.appendChild(headerPagesH4);
-
-         const headerIsReadH4 = document.createElement("h4");
-         headerIsReadH4.classList.add("headerIsRead");
-         headerIsReadH4.textContent = headerIsRead;
-         cardDiv.appendChild(headerIsReadH4);
-
-         const headerNotesH4 = document.createElement("h4");
-         headerNotesH4.classList.add("headerNotes");
-         headerNotesH4.textContent = headerNotes;
-         cardDiv.appendChild(headerNotesH4);
-
-         const bookTitleP = document.createElement("p");
-         bookTitleP.classList.add("bookTitle");
-         bookTitleP.textContent = book.title;
-         cardDiv.appendChild(bookTitleP);
-
-         const bookAuthorP = document.createElement("p");
-         bookAuthorP.classList.add("bookAuthor");
-         bookAuthorP.textContent = book.author;
-         cardDiv.appendChild(bookAuthorP);
-
-         const bookPagesP = document.createElement("p");
-         bookPagesP.classList.add("bookPages");
-         bookPagesP.textContent = book.pages;
-         cardDiv.appendChild(bookPagesP);
-
-         const bookIsReadP = document.createElement("p");
-         bookIsReadP.classList.add("bookIsRead");
-         bookIsReadP.textContent = book.isRead;
-         cardDiv.appendChild(bookIsReadP);
-
-         const bookNotesP = document.createElement("p");
-         bookNotesP.classList.add("bookNotes");
-         bookNotesP.textContent = book.notes;
-         cardDiv.appendChild(bookNotesP);
-
-         const cardBottomContainer = document.createElement('div');
-         cardBottomContainer.classList.add('cardBottomContainer');
-
-         const isReadCheckbox = document.createElement('input');
-         isReadCheckbox.type = 'checkbox';
-         isReadCheckbox.name = 'isRead';
-         isReadCheckbox.classList.add('isReadCheckbox');
-         isReadCheckbox.dataset.bookId = book.id; //set the book id as a data attribute
-         const isReadLabel = document.createElement('lable');
-         isReadLabel.classList.add('isReadLabel');
-         isReadLabel.htmlFor = 'isReadCheckbox'; // Link label to checkbox by id
-         isReadLabel.textContent = 'Read';
-         cardBottomContainer.appendChild(isReadLabel);
-         cardBottomContainer.appendChild(isReadCheckbox);
-
-         const removeBookBtn = document.createElement('button');
-         removeBookBtn.classList.add('removeBookBtn');
-         removeBookBtn.textContent = 'Remove';
-         removeBookBtn.id = 'removeBookBtn';
-         removeBookBtn.dataset.bookId = book.id; //set the book id as a data attribute so this card can be tracked for removal with button is clicked
-         cardBottomContainer.appendChild(removeBookBtn);
-         cardDiv.appendChild(cardBottomContainer);
-
-
-         libraryCardsDiv.appendChild(cardDiv);
-    
+         displayCard(book);
     });
 }
 
@@ -140,7 +54,6 @@ function displayCard(book){
     const headerTitle = "Title: ";
     const headerAuthor = "Author: ";
     const headerPages = "Pages: ";
-    const headerIsRead = "Read? ";
     const headerNotes = "Notes: ";
     const libraryCardsDiv = document.getElementById('libraryCards');
     
@@ -165,11 +78,6 @@ function displayCard(book){
          headerPagesH4.textContent = headerPages;
          cardDiv.appendChild(headerPagesH4);
 
-         const headerIsReadH4 = document.createElement("h4");
-         headerIsReadH4.classList.add("headerIsRead");
-         headerIsReadH4.textContent = headerIsRead;
-         cardDiv.appendChild(headerIsReadH4);
-
          const headerNotesH4 = document.createElement("h4");
          headerNotesH4.classList.add("headerNotes");
          headerNotesH4.textContent = headerNotes;
@@ -190,11 +98,6 @@ function displayCard(book){
          bookPagesP.textContent = book.pages;
          cardDiv.appendChild(bookPagesP);
 
-         const bookIsReadP = document.createElement("p");
-         bookIsReadP.classList.add("bookIsRead");
-         bookIsReadP.textContent = book.isRead;
-         cardDiv.appendChild(bookIsReadP);
-
          const bookNotesP = document.createElement("p");
          bookNotesP.classList.add("bookNotes");
          bookNotesP.textContent = book.notes;
@@ -206,12 +109,14 @@ function displayCard(book){
          const isReadCheckbox = document.createElement('input');
          isReadCheckbox.type = 'checkbox';
          isReadCheckbox.name = 'isRead';
+         isReadCheckbox.value = 'false';
+         if (book.isRead) { isReadCheckbox.checked = true;}
          isReadCheckbox.classList.add('isReadCheckbox');
          isReadCheckbox.dataset.bookId = book.id; //set the book id as a data attribute
          const isReadLabel = document.createElement('lable');
          isReadLabel.classList.add('isReadLabel');
          isReadLabel.htmlFor = 'isReadCheckbox'; // Link label to checkbox by id
-         isReadLabel.textContent = 'Read';
+         isReadLabel.textContent = 'Read? ';
          cardBottomContainer.appendChild(isReadLabel);
          cardBottomContainer.appendChild(isReadCheckbox);
          
@@ -239,9 +144,6 @@ function removeParentAndGrandparent(event) {
   }
 }
 
-
-
-
 const hobbit = new Book(999, 'The Hobbit', 'J.R.R. Tolkien', 600, false, "some remarks");
 console.log(hobbit.info());
 addBookToLibrary('The Hobbit', 'J.R.R. Tolkien', 295, false, "some remarks about the book expeirence")
@@ -254,12 +156,13 @@ displayLibrary(myLibrary);
 
 document.getElementById('addBookBtn').onclick = function(event) {
     event.preventDefault();
+    let isRead = false;
     const form = document.getElementById('addBookForm');
     const formData = new FormData(form);
     const title = formData.get('book_title');
     const author = formData.get('book_author');
     const pages = formData.get('book_pages');
-    const isRead = formData.get('book_isRead');
+    if (formData.get('book_isRead')=== "on") {isRead=true};
     const notes = formData.get('book_notes');
     
     addBookToLibrary(title, author, pages, isRead, notes);
@@ -285,7 +188,7 @@ const parentContainer = document.getElementById('libraryCards');
             console.log(myLibrary)
         }
         if (event.target.classList.contains('isReadCheckbox')) {
-            bookToggleIsReadLibrary(event.target.dataset.bookId);
+            bookToggleIsRead(event.target.dataset.bookId);
             console.log(myLibrary);
         }
     });

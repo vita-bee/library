@@ -43,7 +43,7 @@ p, h1, h2, h3, h4, h5, h6 {   overflow-wrap: break-word; }
   background-color: var(--darkSection-color);
   color: rgb(226, 222, 222);
   font-size: 12px;
-  grid-column: 2;
+  grid-column: 1 / 3;
   grid-row: 1;
   display: grid;
   box-shadow: -10px 0px 10px -5px rgba(251, 249, 249, 0.5);
@@ -51,23 +51,6 @@ p, h1, h2, h3, h4, h5, h6 {   overflow-wrap: break-word; }
 }
 p .inline{
     display:inline-block;
-}
-.searchContainer {
-    display: flex;
-    margin-top: 10px;
-    margin-left: 20px;
-}
-.searchBox input[type="text"] {
-  grid-column: 1;
-  grid-row: 1;
-  background-color: #FFFFFF;
-  border: 1px solid #D6D9DC;
-  border-radius:14px;
-  width: 300px;
-  height: 20px;
-  margin-left: 3px;
-  padding: 0px 7px 0px 7px;
-  font-size: 10px;
 }
 
 .greetingContainer{
@@ -129,90 +112,14 @@ p .inline{
     margin-right: 10px;
 }
 
-.bellIcon{
-    display:inline-block;
-    background-image: url("images/bell.png");
-    background-size: cover;     
-    background-position: center; 
-    width:20px;
-    height:20px;
-    margin-right: 45px;
-}
 
 p.profileName{
     display: inline-block;
 }
 
-button {
-    height: 30px;
-    width: 60px;
-    padding: 5px 8px;
-    border: none;
-    background-color: #007bff;
-    color: white;
-    border-radius: 10px;;
-}
-
-.buttonContainer {
-    display: flex;
-    padding-right: 20px;
-    grid-column: 2;
-    grid-row: 2;
-    justify-self:end;
-    align-self: center;
-    gap: 20px;
-}
-
-a {
-    color: rgb(177, 176, 176);
-    text-decoration: none;
-}
-
-a:hover {
-    font-weight: 600;
-    color: rgb(255, 217, 0)
-}
-
-.navSidebar {
-  background-color: var(--darkSection-color);
-  color:  white ;
-  grid-column: 1 / 2;
-  grid-row: 1 / 3;
-  display: grid;
-  grid-template-rows: auto;
-  grid-template-columns: 1fr;
-}
-
-.logo {
-    padding-top: 15px;
-    color: orange;
-    font-weight: 600;
-    text-align: left;
-}
-.nav {
-  grid-column: 1 / 1;
-  grid-row: 1 / 1;
-  margin-left: 20px;
-}
-
-.nav ul {
-  padding-top: 35px;
-  display: grid;
-  grid-template-rows:  auto;
-  grid-template-columns: auto;
-}
-.nav ul li {
-  font-size: 16px;
-  color: white;
-  list-style-type: none;
-  justify-self: left;
-  line-height: 2.5em;;
-  
-}
-
 .contentContainer {
   background-color: var(--contentSection-color);
-  grid-column: 2;
+  grid-column: 1/3;
   grid-row: 2;
   display: grid;
   grid-template-rows: auto;
@@ -260,6 +167,7 @@ a:hover {
   color: black;
   height: 200px;
   min-width:150px;
+  max-width:250px;
   border-radius: 8px;
   border-left: 6px solid orange;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
@@ -292,13 +200,9 @@ a:hover {
     grid-column: 1 / 2;
     grid-row: 3 / 4;
 }
-.card .headerIsRead {
-    grid-column: 1 / 2;
-    grid-row: 4 / 5;
-}
 .card .headerNotes {
     grid-column: 1 / 2;
-    grid-row: 5 / 6;
+    grid-row: 4 / 5;
 }
 
 .card .bookTitle {
@@ -311,18 +215,16 @@ a:hover {
 .card .bookAuthor {
     grid-column: 2 / 3;
     grid-row: 2 / 3;
+    font-weight: 600;
 }
 .card .bookPages {
     grid-column: 2 / 3;
     grid-row: 3 / 4;
 }
-.card .bookIsRead {
-    grid-column: 2 / 3;
-    grid-row: 4 / 5;
-}
+
 .card .bookNotes {
     grid-column: 2 / 3;
-    grid-row: 5 / 6;
+    grid-row: 4 / 5;
     max-height: 90%; /* to prevent grid expansion with text pushing down the icons row to be no visible*/
     padding: 0px 10px 0px 10px;
     overflow: hidden;
@@ -333,57 +235,10 @@ a:hover {
 
 .card .cardBottomContainer {
     grid-column: 2 / 3;
-    grid-row: 6/7;
+    grid-row: 5/6;
     justify-self:self-end;
     align-self: self-end;
     padding-right: 10px;
-}
-
-.utilityIcon1{
-    display:inline-block;
-    background-image: url("images/calendar.svg");
-    background-size: cover;     
-    background-position: center; 
-    width:20px;
-    height:20px;
-}
-.utilityIcon2{
-    display:inline-block;
-    background-image: url("images/thumbs-up.svg");
-    background-size: cover;     
-    background-position: center; 
-    width:20px;
-    height:20px;
-}
-.utilityIcon3{
-    display:inline-block;
-    background-image: url("images/upload.svg");
-    background-size: cover;     
-    background-position: center; 
-    width:20px;
-    height:20px;
-}
-
-.utilityIcon1:hover{
-    filter: invert(100%);
-}
-.utilityIcon2:hover{
-    filter: invert(100%);
-}
-.utilityIcon3:hover{
-    filter: invert(100%);
-}
-
-.rtSidebarHeader1 {
-  grid-column: 1;
-  grid-row: 1;
-  justify-self: left;
-}
-
-.rtSidebarHeader2 {
-  grid-column: 1;
-  grid-row: 3;
-  justify-self: left;
 }
 
 .rtSideContainer {
@@ -394,6 +249,7 @@ a:hover {
   grid-template-columns: auto;
   align-items: start;
   gap: 10px;
+  padding-top: 30px;
 }
 
 .rtSideContainer .side-content {
@@ -405,28 +261,6 @@ a:hover {
   border-radius: 8px;
   padding: 15px;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
-}
-
-
-.footer {
-  background-color: var(--darkSection-color);
-  color: white;
-  grid-column: 1 / 3;
-  grid-row: 3 /4 ;
-  height: 70px;
-  align-content: center;
-  
-}
-
-.footer p {
-  font-size: 10px;
-  font-weight: normal;
-}
-
-
-
-.emphasisText {
-    font-style: italic;
 }
 
 .fieldsContainer{
@@ -515,7 +349,7 @@ legend {
 }
 
   #addBookBtn {
-    background-color: #596D48;
+    background-color: #06306f;
     color: white;
     border: none;
     border-radius: 6px;
@@ -525,6 +359,7 @@ legend {
     margin-top: 15px;
     font-size: 10px;
     font-weight: 700;
+    box-shadow: 0px 5px 0px #999;
 }
 
  #removeBookBtn {
@@ -533,7 +368,7 @@ legend {
     color: white;
     border: none;
     border-radius: 6px;
-    width:90px;
+    width:70px;
     padding: 5px 10px;
     font-size: 10px;
     font-weight: 700;
@@ -553,7 +388,9 @@ legend {
 }
 
 .isReadLabel {
-    color:#740984 !important;
+    color:#740984;
     font-weight: 700;
     padding-left: 3px;
+    font-style: italic;
 }
+
